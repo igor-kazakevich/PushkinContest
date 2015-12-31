@@ -1,7 +1,13 @@
 require 'net/http'
 
 class Contest
-  def run
+
+  def run(env)
+    puts env
+    return ["Answer send!"]
+  end
+
+  def sendAnswer
     uri = URI("http://requestb.in/1clqg6j1")
     parameters = {
       answer: "answer",
@@ -10,6 +16,5 @@ class Contest
     }
 
     Net::HTTP.post_form(uri, parameters)
-    return [""]
   end
 end
