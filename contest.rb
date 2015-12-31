@@ -49,7 +49,7 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    return [200, {"Content-Type" => "application/json"}, ["мглою"]]
+    return [200, {"Content-Type" => "application/json"}, [""]]
   end
 
   def self.sent_answer(answer)
