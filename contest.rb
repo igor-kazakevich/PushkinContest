@@ -11,6 +11,7 @@ class Contest
   def self.call(env)
     @params = CGI::parse(env["QUERY_STRING"])
 
+    puts env
     puts @params["token"]
 
     @level = @params["level"].first
