@@ -3,9 +3,9 @@ require 'cgi'
 
 class Contest
 
-  def run(env)
+  def call(env)
     puts CGI::parse(env["QUERY_STRING"])
-    return ["Answer send!"]
+    return [200, {'Content-Type'=>'text/plain'}, ["Answer send!"]]
   end
 
   def sendAnswer
