@@ -1,9 +1,10 @@
 require 'net/http'
+require 'cgi'
 
 class Contest
 
   def run(env)
-    puts env
+    puts CGI::parse(env["QUERY_STRING"])
     return ["Answer send!"]
   end
 
