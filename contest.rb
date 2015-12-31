@@ -11,7 +11,7 @@ class Contest
   def self.call(env)
     @params = CGI::parse(env["QUERY_STRING"])
 
-    if env["PATH_INFO"] = "/registration"
+    if env["PATH_INFO"] == "/registration"
       puts @params["token"]
       puts env
     end
