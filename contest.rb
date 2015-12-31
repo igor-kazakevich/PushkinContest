@@ -13,6 +13,7 @@ class Contest
 
     if env["PATH_INFO"] = "/registration"
       puts @params["token"]
+      puts env
     end
 
     @level = @params["level"].first
@@ -54,7 +55,7 @@ class Contest
   end
 
   def self.sent_answer(answer)
-    uri = URI("http://requestb.in/1clqg6j1")
+    uri = URI("http://pushkin.rubyroid.by/quiz")
     parameters = {
       answer: answer,
       token: 'token',
