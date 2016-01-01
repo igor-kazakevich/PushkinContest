@@ -17,7 +17,7 @@ class Contest
     @level = @params["level"].first
     @question = @params["question"].first
 
-    puts "Request get! Begin find..."
+    puts "Request get!"
 
     if @level == '1'
       sent_answer(@finder.findTitle(@question))
