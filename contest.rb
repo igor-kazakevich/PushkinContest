@@ -1,5 +1,7 @@
 require 'net/http'
 require 'cgi'
+require 'json'
+
 
 require "./finder.rb"
 
@@ -9,9 +11,9 @@ class Contest
   end
 
   def self.call(env)
-    @params = CGI::parse(env["QUERY_STRING"])
+    @params = JSON.parse(env["rack.input"])
 
-    puts env
+    puts @params
     puts @params["token"]
 
     @level = @params["level"].first
