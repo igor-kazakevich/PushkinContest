@@ -4,24 +4,20 @@ require 'cgi'
 require "./finder.rb"
 
 class Contest
-  def initialize
-    
+  def self.prepare
+    @finder = Finder.new    
   end
 
-  # def self.prepare
-  #   @finder = Finder.new    
-  # end
-
-  def call(env)
+  def self.call(env)
     @params = CGI::parse(env["QUERY_STRING"])
 
-    req = Rack::Request.new(env)
-    puts req.params
+    puts env
+    puts @params["token"]
 
     @level = @params["level"].first
     @question = @params["question"].first
 
-    puts "Request get!"
+    puts "Request get! Begin find..."
 
     if @level == '1'
       sent_answer(@finder.findTitle(@question))
@@ -53,7 +49,7 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    return [200, {"Content-Type" => "application/json"}, [""]]
+    return [200, {"Content-Type" => "application/json"}, ["мглою"]]
   end
 
   def self.sent_answer(answer)
