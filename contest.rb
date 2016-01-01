@@ -15,8 +15,8 @@ class Contest
   def call(env)
     @params = CGI::parse(env["QUERY_STRING"])
 
-    puts env
-    puts @params["token"]
+    req = Rack::Request.new(env)
+    puts req.params["token"]
 
     @level = @params["level"].first
     @question = @params["question"].first
