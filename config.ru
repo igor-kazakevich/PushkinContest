@@ -4,5 +4,4 @@ require "./contest.rb"
 
 $stdout.sync = true
 
-Contest.prepare
-run(Contest)
+run(Contest.new)

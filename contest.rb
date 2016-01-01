@@ -4,11 +4,15 @@ require 'cgi'
 require "./finder.rb"
 
 class Contest
-  def self.prepare
-    @finder = Finder.new    
+  def initialize
+    
   end
 
-  def self.call(env)
+  # def self.prepare
+  #   @finder = Finder.new    
+  # end
+
+  def call(env)
     @params = CGI::parse(env["QUERY_STRING"])
 
     puts env
