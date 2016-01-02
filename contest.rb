@@ -1,6 +1,6 @@
 require 'net/http'
 require 'cgi'
-
+require 'json'
 
 require "./finder.rb"
 
@@ -10,8 +10,9 @@ class Contest
   end
 
   def self.call(env)
-    puts env["rack.input"].read
-    @params = JSON.parse(env["rack.input"].read)
+    @input = env["rack.input"].read
+    puts @input
+    @params = JSON.parse(@input)
 
     puts @params
     puts @params["token"]
