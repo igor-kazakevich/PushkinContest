@@ -14,11 +14,10 @@ class Contest
     puts @input
     @params = JSON.parse(@input)
 
-    puts @params
     puts @params["token"]
 
-    @level = @params["level"].first
-    @question = @params["question"].first
+    @level = @params["level"]
+    @question = @params["question"]
 
     puts "Request get! Begin find..."
 
@@ -52,7 +51,7 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    return [200, {"Content-Type" => "application/json"}, ["мглою"]]
+    return [200, {"Content-Type" => "application/json"}, ["снежные"]]
   end
 
   def self.sent_answer(answer)
@@ -60,7 +59,7 @@ class Contest
     parameters = {
       answer: answer,
       token: 'token',
-      task_id: @params["id"].first
+      task_id: @params["id"]
     }
 
     Net::HTTP.post_form(uri, parameters)
