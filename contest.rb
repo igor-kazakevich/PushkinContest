@@ -51,7 +51,7 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    return [200, {"Content-Type" => "application/json"}, ["снежные"]]
+    return [200, {"Content-Type" => "application/json"}, [ {answer: 'снежные'}.to_json ]]
   end
 
   def self.sent_answer(answer)
