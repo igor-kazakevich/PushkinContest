@@ -32,7 +32,7 @@ class Contest
     if @level == 3 || @level == 4
       answer = []
       
-      @question.split("\\n").each do |q|
+      @question.split("\n").each do |q|
         answer << @finder.findWord(q)
       end
 
