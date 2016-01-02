@@ -13,7 +13,7 @@ class Contest
     @input = env["rack.input"].read
 
     puts @input
-    
+
     @params = JSON.parse(@input)
 
     @level = @params["level"]
@@ -21,15 +21,15 @@ class Contest
 
     puts "Request get! Begin find..."
 
-    if @level == '1'
+    if @level == 1
       sent_answer(@finder.findTitle(@question))
     end
 
-    if @level == '2'
+    if @level == 2
       sent_answer(@finder.findWord(@question))
     end
 
-    if @level == '3' || @level == '4'
+    if @level == 3 || @level == 4
       answer = []
       
       @question.split("\\n").each do |q|
@@ -39,15 +39,15 @@ class Contest
       sent_answer(answer.join(","))
     end
 
-    if @level == '5'
+    if @level == 5
       sent_answer(@finder.find_change_word(@question))
     end
 
-    if @level == '6' || @level == '7'
+    if @level == 6 || @level == 7
       sent_answer(@finder.findLine(@question))
     end
 
-    if @level == '8'
+    if @level == 8
       sent_answer(@finder.findLineWithError(@question))
     end
 
