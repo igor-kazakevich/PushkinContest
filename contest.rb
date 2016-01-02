@@ -11,10 +11,10 @@ class Contest
 
   def self.call(env)
     @input = env["rack.input"].read
-    puts @input
-    @params = JSON.parse(@input)
 
-    puts @params["token"]
+    puts @input
+    
+    @params = JSON.parse(@input)
 
     @level = @params["level"]
     @question = @params["question"]
@@ -51,20 +51,20 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    return [200, {"Content-Type" => "application/json"}, [ {answer: 'снежные'}.to_json ]]
+    return [200, {"Content-Type" => "application/json"}, [""]]
   end
 
   def self.sent_answer(answer)
     uri = URI("http://pushkin.rubyroid.by/quiz")
     parameters = {
       answer: answer,
-      token: 'token',
+      token: '9b22af0964399fba3c840ae210e3009a',
       task_id: @params["id"]
     }
 
     Net::HTTP.post_form(uri, parameters)
 
     puts "Request sent! Answer: #{answer}"
-    puts "ID: #{@params["id"].first}"
+    puts "ID: #{@params["id"]}"
   end
 end
