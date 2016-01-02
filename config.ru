@@ -1,4 +1,4 @@
-#\ -s puma
+require 'rack'
 
 require "./contest.rb"
 
