@@ -45,7 +45,7 @@ class Finder
         difference2.delete_at(index_key) if index_key
       end
 
-      puts @hash_line[key] if difference1.size == 2 && difference2.size == 2
+      puts @hash_line[key] if difference1.size <= 2 && difference2.size <= 2
     end
     return nil
   end
