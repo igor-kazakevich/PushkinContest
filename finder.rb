@@ -32,9 +32,13 @@ class Finder
 
     @hash_line.each_key do |key|
       difference1 = (key.split(//) - index.split(//)).size
-      difference2 = (index.split(//) - key.split(//)).size
 
-      return @hash_line[key] if difference1 == 2 && difference2 == 2
+      if difference1 == 2
+        p key.split(//)
+        p index.split(//)
+
+        puts @hash_line[key]
+      end
     end
     return nil
   end
