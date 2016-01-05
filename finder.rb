@@ -2,8 +2,8 @@ require 'json'
 
 class Finder
   def initialize
-    @letters = ["о", "а", "е", "и", "н", "т", "р", "с", "л", "в", "к", "п", "м",
-  "у", "д", "я", "ы", "ь"]
+    @letters = ["о", "а", "е", "и", "н", "т", "р", "с", "л", "в", "к", "п", "м", 
+      "у", "д", "я", "ы", "ь"]
 
     file = File.read('json_base/hash_title.json')
     @hash_title = JSON.parse(file)
@@ -24,21 +24,21 @@ class Finder
   end
 
   def findLineWithError(question)
-    index = ""
+    index = []
 
     @letters.each do |l|
-      index += question.count(l).to_s
+      index << question.count(l).to_s
     end
 
     @hash_line.each_key do |key|
-      difference1 = (key.split(//) - index.split(//)).size
+      difference = key.split(//)
 
-      if difference1 == 2
-        p key.split(//)
-        p index.split(//)
-
-        puts @hash_line[key]
+      index.each do |item|
+        index_key = difference.index(item)
+        difference.delete_at(index_key) if index_key 
       end
+
+      return @hash_line[key] if difference.size == 2
     end
     return nil
   end
@@ -68,7 +68,6 @@ class Finder
         return @hash_search_word[index] + "," + word
       end
     end
-
   end
 
 end
