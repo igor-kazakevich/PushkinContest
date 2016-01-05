@@ -31,14 +31,21 @@ class Finder
     end
 
     @hash_line.each_key do |key|
-      difference = key.split(//)
+      difference1 = key.split(//)
 
       index.each do |item|
-        index_key = difference.index(item)
-        difference.delete_at(index_key) if index_key 
+        index_key = difference1.index(item)
+        difference1.delete_at(index_key) if index_key 
       end
 
-      puts @hash_line[key] if difference.size == 2
+      difference2 = index
+
+      key.split(//).each do |item|
+        index_key = difference2.index(item)
+        difference2.delete_at(index_key) if index_key
+      end
+
+      puts @hash_line[key] if difference1.size == 2 && difference2.size == 2
     end
     return nil
   end
