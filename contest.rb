@@ -47,7 +47,6 @@ class Contest
     end
 
     if @level == 8
-      puts "start 8 level!"
       sent_answer(@finder.findLineWithError(@question))
     end
 
