@@ -24,29 +24,29 @@ class Finder
   end
 
   def findLineWithError(question)
-    index = []
+    @index = []
 
     @letters.each do |l|
-      index << question.count(l).to_s
+      @index << question.count(l).to_s
     end
 
     @hash_line.each_key do |key|
-      difference1 = key.split(//)
+      @key = key.split(//)
 
-      index.each do |item|
-        index_key = difference1.index(item)
-        difference1.delete_at(index_key) if index_key 
+      @difference = 0
+
+      @index.each_with_index do |item, i|
+        break if @difference > 2
+        @difference += 1 unless @key[i] == item
       end
 
-      difference2 = index
+      next if @difference > 2
 
-      key.split(//).each do |item|
-        index_key = difference2.index(item)
-        difference2.delete_at(index_key) if index_key
+      if @difference <= 2
+        return @hash_line[key]
       end
-
-      puts @hash_line[key] if difference1.size <= 2 && difference2.size <= 2
     end
+
     return nil
   end
 
