@@ -47,7 +47,8 @@ class Contest
     end
 
     if @level == 8
-      sent_answer(@finder.findLineWithError(@question))
+      #sent_answer(@finder.findLineWithError(@question))
+      puts '8 level'
     end
 
     return [200, {"Content-Type" => "application/json"}, [""]]
