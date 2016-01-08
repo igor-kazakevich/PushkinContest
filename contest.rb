@@ -1,5 +1,4 @@
-#require 'net/http'
-require 'unirest'
+require 'net/http'
 require 'json'
 
 require "./finder.rb"
@@ -48,29 +47,21 @@ class Contest
     end
 
     if @level == 8
-      #sent_answer(@finder.findLineWithError(@question))
-      sent_answer('test request')
+      sent_answer(@finder.findLineWithError(@question))
     end
 
     return [200, {"Content-Type" => "application/json"}, [""]]
   end
 
   def self.sent_answer(answer)
-    # uri = URI("http://pushkin.rubyroid.by/quiz")
-    # parameters = {
-    #   answer: answer,
-    #   token: '9b22af0964399fba3c840ae210e3009a',
-    #   task_id: @params["id"]
-    # }
-
-    # Net::HTTP.post_form(uri, parameters)
-
-    response = Unirest.post "http://pushkin.rubyroid.by/quiz", 
-                        headers:{ "Accept" => "application/json" }, 
-                        parameters:{ answer: answer,
+    uri = URI("http://pushkin.rubyroid.by/quiz")
+    parameters = {
+      answer: answer,
       token: '9b22af0964399fba3c840ae210e3009a',
-      task_id: @params["id"]}
+      task_id: @params["id"]
+    }
 
+    Net::HTTP.post_form(uri, parameters)
 
     puts "Request sent! Answer: #{answer}"
     puts "ID: #{@params["id"]}"

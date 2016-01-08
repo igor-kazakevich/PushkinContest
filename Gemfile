@@ -6,5 +6,3 @@ gem 'rack'
 gem 'puma'
 
 gem 'json'
-
-gem 'unirest'
