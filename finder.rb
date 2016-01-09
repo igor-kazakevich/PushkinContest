@@ -1,7 +1,8 @@
-require 'json'
-
 class Finder
   def initialize
+    
+    require 'json'
+
     @letters = ["о", "а", "е", "и", "н", "т", "р", "с", "л", "в", "к", "п", "м", 
       "у", "д", "я", "ы", "ь"]
 
