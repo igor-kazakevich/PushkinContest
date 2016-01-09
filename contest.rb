@@ -61,7 +61,7 @@ class Contest
       task_id: @params["id"]
     }
 
-    Net::HTTP.post_form(uri, parameters)
+    #Net::HTTP.post_form(uri, parameters)
 
     puts "Request sent! Answer: #{answer}"
     puts "ID: #{@params["id"]}"
