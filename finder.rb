@@ -13,6 +13,8 @@ class Finder
 
     file = File.read('json_base/hash_search_word.json')
     @hash_search_word = JSON.parse(file)
+
+    puts "FINDER INITIALIE!!!"
   end
 
   def findLine(question)
