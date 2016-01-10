@@ -65,7 +65,7 @@ class Contest
     #Net::HTTP.post_form(uri, parameters)
 
 
-    http = Curl.post("http://pushkin.rubyroid.by/quiz", parameters)
+    http = Curl.post("http://requestb.in/us514hus", parameters.to_json)
     puts "Response: #{http.body_str}"
 
     puts "Request sent! Answer: #{answer}"
