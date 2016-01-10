@@ -10,8 +10,6 @@ class Contest
   end
 
   def self.call(env)
-    @before = Time.now
-
     @input = env["rack.input"].read
 
     puts @input
@@ -53,9 +51,6 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    @dif_time = Time.now - @before
-    puts "Time: #{@dif_time}"
-    
     return [200, {"Content-Type" => "application/json"}, [""]]
   end
 
