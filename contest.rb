@@ -1,4 +1,5 @@
-require 'net/http'
+#require 'net/http'
+require 'curb'
 require 'json'
 
 require "./finder.rb"
@@ -10,6 +11,8 @@ class Contest
 
   def self.call(env)
     @input = env["rack.input"].read
+
+    puts env
 
     puts @input
 
@@ -54,7 +57,7 @@ class Contest
   end
 
   def self.sent_answer(answer)
-    uri = URI("http://pushkin.rubyroid.by/quiz")
+    #uri = URI("http://pushkin.rubyroid.by/quiz")
     parameters = {
       answer: answer,
       token: '9b22af0964399fba3c840ae210e3009a',
@@ -62,6 +65,10 @@ class Contest
     }
 
     #Net::HTTP.post_form(uri, parameters)
+
+
+    http = Curl.post("http://pushkin.rubyroid.by/quiz", parameters)
+    puts "Response: #{http.body_str}"
 
     puts "Request sent! Answer: #{answer}"
     puts "ID: #{@params["id"]}"

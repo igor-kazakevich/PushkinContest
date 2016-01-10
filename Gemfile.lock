@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    curb (0.9.1)
     puma (2.15.3)
     rack (1.6.4)
 
@@ -8,6 +9,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  curb
   puma
   rack
 
