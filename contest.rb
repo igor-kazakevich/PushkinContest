@@ -12,8 +12,6 @@ class Contest
   def self.call(env)
     @input = env["rack.input"].read
 
-    puts env
-
     puts @input
 
     @params = JSON.parse(@input)
