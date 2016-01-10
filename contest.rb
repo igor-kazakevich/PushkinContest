@@ -1,6 +1,6 @@
-#require 'net/http'
 require 'curb'
 require 'json'
+require 'socket'
 
 require "./finder.rb"
 
@@ -11,6 +11,8 @@ class Contest
 
   def self.call(env)
     @input = env["rack.input"].read
+
+    puts env
 
     puts @input
 
@@ -55,22 +57,23 @@ class Contest
   end
 
   def self.sent_answer(answer)
-    #uri = URI("http://pushkin.rubyroid.by/quiz")
-    # parameters = {
-    #   answer: answer,
-    #   token: '9b22af0964399fba3c840ae210e3009a',
-    #   task_id: @params["id"]
-    # }
+    # http = Curl::Easy.http_post("http://pushkin.rubyroid.by/quiz",
+    #   "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}")
+    # puts "Response: #{http.body_str}"
 
-    #Net::HTTP.post_form(uri, parameters)
+    send_data = "answer=#{answer}&token=9b22af0964399fba3c840ae210e300&task_id=#{@params['id']}"
 
+    connection = TCPSocket.open "requestb.in", 80
 
-    #http = Curl.post("http://requestb.in/us514hus", parameters.to_json)
+    connection.puts "POST /smae48sm HTTP/1.1\r\n"
+    connection.puts "Host: requestb.in\r\n"
+    connection.puts "Content-Type: application/x-www-form-urlencoded\r\n"
+    connection.puts "Content-Length: #{send_data.bytesize}\r\n\r\n"
+    connection.puts "Connection: close\r\n"
 
-
-    http = Curl::Easy.http_post("http://pushkin.rubyroid.by/quiz",
-      "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}")
-    puts "Response: #{http.body_str}"
+    connection.puts "\r\n"
+    connection.puts send_data
+    connection.close
 
 
     puts "Request sent! Answer: #{answer}"
