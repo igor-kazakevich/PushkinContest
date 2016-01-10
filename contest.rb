@@ -70,7 +70,7 @@ class Contest
     connection.puts "Content-Length: #{send_data.bytesize}\r\n\r\n"
 
     connection.puts "\r\n"
-    connection.puts send_data
+    connection.puts "#{send_data}\n"
     connection.close
 
 
