@@ -56,17 +56,22 @@ class Contest
 
   def self.sent_answer(answer)
     #uri = URI("http://pushkin.rubyroid.by/quiz")
-    parameters = {
-      answer: answer,
-      token: '9b22af0964399fba3c840ae210e3009a',
-      task_id: @params["id"]
-    }
+    # parameters = {
+    #   answer: answer,
+    #   token: '9b22af0964399fba3c840ae210e3009a',
+    #   task_id: @params["id"]
+    # }
 
     #Net::HTTP.post_form(uri, parameters)
 
 
-    http = Curl.post("http://requestb.in/us514hus", parameters.to_json)
+    #http = Curl.post("http://requestb.in/us514hus", parameters.to_json)
+
+
+    http = Curl::Easy.http_post("http://pushkin.rubyroid.by/quiz",
+      "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}")
     puts "Response: #{http.body_str}"
+
 
     puts "Request sent! Answer: #{answer}"
     puts "ID: #{@params["id"]}"
