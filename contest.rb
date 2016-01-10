@@ -59,7 +59,7 @@ class Contest
     #   "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}")
     # puts "Response: #{http.body_str}"
 
-    send_data = "answer=#{answer}&token=9b22af0964399fba3c840ae210e300&task_id=#{@params['id']}"
+    send_data = "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}"
 
     connection = TCPSocket.open "requestb.in", 80
 
