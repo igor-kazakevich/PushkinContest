@@ -65,9 +65,9 @@ class Contest
 
     connection.puts "POST /smae48sm HTTP/1.1\r\n"
     connection.puts "Host: requestb.in\r\n"
+    connection.puts "Connection: close\r\n"
     connection.puts "Content-Type: application/x-www-form-urlencoded\r\n"
     connection.puts "Content-Length: #{send_data.bytesize}\r\n\r\n"
-    connection.puts "Connection: close\r\n"
 
     connection.puts "\r\n"
     connection.puts send_data
