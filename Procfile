@@ -1,1 +1,1 @@
-web: rackup passenger start -p $PORT
+web: rackup -p $PORT
