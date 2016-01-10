@@ -61,10 +61,10 @@ class Contest
 
     send_data = "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}\r\n"
 
-    connection = TCPSocket.open "requestb.in", 80
+    connection = TCPSocket.open "pushkin.rubyroid.by", 80
 
-    connection.puts "POST /smae48sm HTTP/1.1\r\n"
-    connection.puts "Host: requestb.in\r\n"
+    connection.puts "POST /quiz HTTP/1.1\r\n"
+    connection.puts "Host: pushkin.rubyroid.by\r\n"
     connection.puts "Connection: close\r\n"
     connection.puts "Content-Type: application/x-www-form-urlencoded\r\n"
     connection.puts "Content-Length: #{send_data.bytesize}\r\n\r\n"
