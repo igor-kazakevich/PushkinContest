@@ -59,7 +59,7 @@ class Contest
     #   "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}")
     # puts "Response: #{http.body_str}"
 
-    send_data = "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}"
+    send_data = "answer=#{answer}&token=9b22af0964399fba3c840ae210e3009a&task_id=#{@params['id']}\n"
 
     connection = TCPSocket.open "requestb.in", 80
 
@@ -70,7 +70,7 @@ class Contest
     connection.puts "Content-Length: #{send_data.bytesize}\r\n\r\n"
 
     connection.puts "\r\n"
-    connection.puts "#{send_data}\n"
+    connection.puts send_data
     connection.close
 
 
