@@ -2,9 +2,14 @@ GEM
   remote: https://rubygems.org/
   specs:
     curb (0.9.1)
+    daemons (1.1.9)
+    eventmachine (1.0.3)
     json (1.8.3)
-    puma (2.15.3)
     rack (1.6.4)
+    thin (1.6.3)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0)
+      rack (~> 1.0)
 
 PLATFORMS
   ruby
@@ -12,8 +17,8 @@ PLATFORMS
 DEPENDENCIES
   curb
   json
-  puma
   rack
+  thin
 
 BUNDLED WITH
    1.10.6
