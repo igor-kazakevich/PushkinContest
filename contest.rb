@@ -86,8 +86,10 @@ class Contest
 
     connection.puts "\r\n"
     connection.puts send_data
+    puts connection.read
+
     connection.close
-    
+
     puts "Request sent! Answer: #{answer}"
     puts "ID: #{@params["id"]}"
   end
