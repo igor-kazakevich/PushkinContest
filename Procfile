@@ -1,1 +1,1 @@
-ruby temp1.rb -s Puma
+web: rackup -p $PORT
