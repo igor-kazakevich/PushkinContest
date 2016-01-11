@@ -82,11 +82,10 @@ class Contest
     connection.puts "Host: pushkin.rubyroid.by\r\n"
     connection.puts "Accept: application/json\r\n"
     connection.puts "Content-Type: application/json\r\n"
-    connection.puts "Content-Length: #{send_data.bytesize + 2}\r\n\r\n"
+    connection.puts "Content-Length: #{send_data.bytesize + 8}\r\n\r\n"
 
     connection.puts "\r\n"
     connection.puts send_data
-    puts connection.read
 
     connection.close
 
