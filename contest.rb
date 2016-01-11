@@ -81,8 +81,9 @@ class Contest
     connection.puts "POST /quiz HTTP/1.1\r\n"
     connection.puts "Host: pushkin.rubyroid.by\r\n"
     connection.puts "Accept: application/json\r\n"
+    connection.puts "Connection: close\r\n"
     connection.puts "Content-Type: application/json\r\n"
-    connection.puts "Content-Length: #{send_data.bytesize + 1}\r\n\r\n"
+    connection.puts "Content-Length: #{send_data.bytesize + 2}\r\n\r\n"
 
     connection.puts "\r\n"
     connection.puts send_data
