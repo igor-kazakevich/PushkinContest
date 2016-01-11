@@ -1,4 +1,3 @@
-require 'curb'
 require 'json'
 require 'socket'
 
