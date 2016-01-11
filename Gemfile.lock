@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    curb (0.9.1)
     daemons (1.1.9)
     eventmachine (1.0.3)
     json (1.8.3)
@@ -15,7 +14,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  curb
   json
   rack
   thin
