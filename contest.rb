@@ -47,7 +47,7 @@ class Contest
       sent_answer(answer.join(","))
     end
 
-    if @level == 5
+    if @level == '5'
       sent_answer(@finder.find_change_word(@question))
     end
 
