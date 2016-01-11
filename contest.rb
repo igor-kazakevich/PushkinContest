@@ -10,6 +10,9 @@ class Contest
   end
 
   def self.call(env)
+
+    @before = Time.now
+
     @input = env["rack.input"].read
 
     puts @input
@@ -50,6 +53,10 @@ class Contest
     if @level == 8
       sent_answer(@finder.findLineWithError(@question))
     end
+
+    time = (Time.now - @before) * 1000
+    puts "All Time = #{time}"
+
 
     return [200, {"Content-Type" => "application/json"}, [""]]
   end
