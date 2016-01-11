@@ -11,7 +11,6 @@ class Contest
 
   def self.call(env)
 
-    @before = Time.now
 
     @input = env["rack.input"].read
 
@@ -25,7 +24,14 @@ class Contest
     puts "Request get! Begin find..."
 
     if @level == 1
-      sent_answer(@finder.findTitle(@question))
+      @before = Time.now
+
+      find_ans = @finder.findTitle(@question)
+      
+      time = (Time.now - @before) * 1000
+      puts "Time search: #{time}"
+
+      sent_answer(find_ans)
     end
 
     if @level == 2
@@ -54,8 +60,7 @@ class Contest
       sent_answer(@finder.findLineWithError(@question))
     end
 
-    time = (Time.now - @before) * 1000
-    puts "All Time = #{time}"
+
 
 
     return [200, {"Content-Type" => "application/json"}, [""]]
