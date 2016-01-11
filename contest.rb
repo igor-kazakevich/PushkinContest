@@ -55,7 +55,7 @@ class Contest
       sent_answer(@finder.findLine(@question))
     end
 
-    if @level == 8
+    if @level == '8'
       sent_answer(@finder.findLineWithError(@question))
     end
 
