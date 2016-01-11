@@ -83,7 +83,7 @@ class Contest
 
     send_data = {'answer' => answer, 'token' => '9b22af0964399fba3c840ae210e3009a', 'task_id' => @params['id']}.to_json
 
-    connection = TCPSocket.open "pushkin.rubyroid.by", 80
+    connection = TCPSocket.new "pushkin.rubyroid.by", 80
 
     connection.puts "POST /quiz HTTP/1.1\r\n"
     connection.puts "Host: pushkin.rubyroid.by\r\n"
