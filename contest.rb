@@ -37,7 +37,7 @@ class Contest
       sent_answer(@finder.findWord(@question))
     end
 
-    if @level == '3' || @level == 4
+    if @level == 3 || @level == 4
       answer = []
       
       @question.split("\n").each do |q|
