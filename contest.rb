@@ -71,6 +71,7 @@ class Contest
 
     connection.puts "\r\n"
     connection.puts send_data
+    puts connection.read
     connection.close
 
 
