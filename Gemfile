@@ -6,4 +6,4 @@ gem 'json'
 gem 'rack'
 #gem 'puma'
 #gem "passenger"
-gem 'unicorn'
+gem 'thin'

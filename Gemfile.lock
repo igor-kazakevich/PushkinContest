@@ -1,14 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    daemons (1.2.3)
+    eventmachine (1.0.8)
     json (1.8.3)
-    kgio (2.9.2)
     rack (1.6.4)
-    raindrops (0.13.0)
-    unicorn (4.8.3)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
+    thin (1.6.4)
+      daemons (~> 1.0, >= 1.0.9)
+      eventmachine (~> 1.0, >= 1.0.4)
+      rack (~> 1.0)
 
 PLATFORMS
   ruby
@@ -16,7 +16,7 @@ PLATFORMS
 DEPENDENCIES
   json
   rack
-  unicorn
+  thin
 
 BUNDLED WITH
    1.10.6
