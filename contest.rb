@@ -11,8 +11,6 @@ class Contest
   def self.call(env)
     @connection = TCPSocket.new "pushkin.rubyroid.by", 80
 
-
-
     @input = env["rack.input"].read
 
     puts @input
@@ -57,7 +55,7 @@ class Contest
       sent_answer(@finder.findLine(@question))
     end
 
-    if @level == '8'
+    if @level == 8
       sent_answer(@finder.findLineWithError(@question))
     end
 
