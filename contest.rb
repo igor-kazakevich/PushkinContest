@@ -5,11 +5,12 @@ require "./finder.rb"
 
 class Contest
   def self.prepare
-    @finder = Finder.new    
+    @finder = Finder.new
+    @connection = TCPSocket.new "pushkin.rubyroid.by", 80
+     
   end
 
   def self.call(env)
-    @connection = TCPSocket.new "pushkin.rubyroid.by", 80
 
     @connection.puts "POST /quiz HTTP/1.1\r\n"
     @connection.puts "Host: pushkin.rubyroid.by\r\n"
